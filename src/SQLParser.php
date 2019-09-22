@@ -516,7 +516,7 @@ class SQLParser{
 					if (count($tokens) >= 1 && $tokens[0] == 'MATCH SIMPLE' ){ $index['ref_match'] = 'SIMPLE' ; array_shift($tokens); }
 
 					if (count($tokens) > 1 && $tokens[0] == 'ON DELETE'){ array_shift($tokens); $index['ref_on_delete'] = array_shift($tokens); }
-					if (count($tokens) > 1 && $tokens[0] == 'ON UPDATE'){ array_shift($tokens); $index['ref_on_delete'] = array_shift($tokens); }
+					if (count($tokens) > 1 && $tokens[0] == 'ON UPDATE'){ array_shift($tokens); $index['ref_on_update'] = array_shift($tokens); }
 				}
 
 				if (count($tokens)) $index['more'] = $tokens;
