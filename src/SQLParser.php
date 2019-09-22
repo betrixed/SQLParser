@@ -348,7 +348,6 @@ class SQLParser{
 		$has_constraint = false;
 		$constraint = null;
 
-
 		#
 		# constraints can come before a few different things
 		#
@@ -492,7 +491,10 @@ class SQLParser{
 				$index = array(
 					'type' => 'FOREIGN',
 				);
-
+                                if ($has_constraint){
+					$index['constraint'] = true;
+					if (!is_null($constraint)) $index['constraint_name'] = $constraint;
+				}
 				array_shift($tokens);
 
 				if ($tokens[0] != '('){
